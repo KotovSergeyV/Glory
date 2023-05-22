@@ -5,11 +5,11 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField] private GameObject _gameObject;
-    [SerializeField] private float randomX;
-    [SerializeField] private float randomY;
-    Vector2 whereToSpawn;
+    [SerializeField] private float random;
+    Vector3 whereToSpawn;
     [SerializeField] private float spawnDelay;
     [SerializeField] private float nextSpawn = 0.0f ;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,9 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (Time.time>nextSpawn)
         {
-
+            nextSpawn = Time.time + spawnDelay;
+            random = Random.Range(208,160);
+            whereToSpawn = new Vector3(random, transform.position.y);
         }
     }
 }
